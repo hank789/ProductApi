@@ -1,0 +1,15 @@
+.idea/
+/vendor/
+.env
+.DS_Store
+/composer.lock
+/_ide_helper.php
+/config/component_routes.php
+.pem
+/.phpstorm.meta.php
+/laravel-echo-server.json
+/node_modules
+/package-lock.json
+/apiDoc
+/public/sitemap.xml
+/hooks
