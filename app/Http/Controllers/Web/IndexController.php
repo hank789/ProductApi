@@ -19,7 +19,7 @@ class IndexController extends Controller
     public function index()
     {
         //return view('inspinia.home.index');
-        return '欢迎来到Inwehub';
+        return 'Welcome~';
     }
 
     public function articleInfo($id, Request $request)

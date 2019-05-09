@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
-    <meta name="author" content="樱维社区" />
-    <meta name="copyright" content="2017 inwehub.com" />
+    <meta name="author" content="" />
+    <meta name="copyright" content="" />
     {!! Setting()->get('website_header') !!}
     <link href="{{ asset('/static/css/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('/static/css/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" />
@@ -25,7 +25,7 @@
             padding: 10px 0px;
         }
         /* Everything but the jumbotron gets side spacing for mobile-first views */
-        .masthead, .body-content, {
+        .masthead, .body-content {
             padding-left: 15px;
             padding-right: 15px;
         }

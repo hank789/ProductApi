@@ -53,28 +53,9 @@ return [
             'strict' => false,
             'engine' => null,
             'dump'   => [
-                'dump_binary_path' => env('MYSQL_DUMP_PATH'),
-                'exclude_tables' => ['app_notifications','app_scraper_bid_info','app_scraper_news_info']
-            ]
-        ],
-        'inwehub_read' => [
-            'driver' => 'mysql',
-            'host' => env('DB_INWEHUB_READ_HOST', '127.0.0.1'),
-            'port' => env('DB_INWEHUB_READ_PORT', '3306'),
-            'database' => env('DB_INWEHUB_READ_DATABASE', 'forge'),
-            'username' => env('DB_INWEHUB_READ_USERNAME', 'forge'),
-            'password' => env('DB_INWEHUB_READ_PASSWORD', ''),
-            'unix_socket' => env('DB_SOCKET', ''),
-            'charset' => 'utf8mb4',
-            'collation' => 'utf8mb4_unicode_ci',
-            'prefix'    => env('DB_INWEHUB_READ_PREFIX','inwehub_'),
-            'strict' => false,
-            'engine' => null,
-            'dump'   => [
                 'dump_binary_path' => env('MYSQL_DUMP_PATH')
             ]
         ],
-
         'pgsql' => [
             'driver' => 'pgsql',
             'host' => env('DB_HOST', '127.0.0.1'),

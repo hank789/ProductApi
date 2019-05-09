@@ -11,11 +11,11 @@
 |
 */
 
-$factory->define(App\User::class, function () {
+$factory->define(App\Models\User::class, function () {
     return [
         'name' => 'admin',
-        'email' => 'admin@tipask.com',
-        'password' => bcrypt('tipask.com'),
+        'email' => 'admin@inwehub.com',
+        'password' => bcrypt('inwehub.com'),
         'remember_token' => str_random(10),
     ];
 });
