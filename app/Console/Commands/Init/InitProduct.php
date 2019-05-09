@@ -4,6 +4,7 @@
  * @date: 2017/4/13 下午8:36
  * @email: hank.huiwang@gmail.com
  */
+use App\Models\ProductUserRel;
 use App\Models\Tag;
 use App\Services\Hmac\Client;
 use Illuminate\Console\Command;
@@ -54,6 +55,11 @@ class InitProduct extends Command
                     'logo' => $data['logo'],
                     'summary' => $data['summary'],
                     'description' => json_encode($description)
+                ]);
+                ProductUserRel::create([
+                    'user_id' => 1,
+                    'status' => 1,
+                    'tag_id' => $data['id']
                 ]);
             }
             return;

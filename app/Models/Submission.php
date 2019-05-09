@@ -245,8 +245,7 @@ class Submission extends Model implements HasMedia {
             ->where('source_id',$submission->id)
             ->where('source_type',Submission::class)
             ->exists();
-        $isBookmark = $user->id?$user->isCollected(get_class($submission),$submission->id):0;
-        $groupMember = GroupMember::where('user_id',$user->id)->where('group_id',$submission->group_id)->where('audit_status',GroupMember::AUDIT_STATUS_SUCCESS)->first();
+        $isBookmark = 0;
 
         $img = $submission->data['img']??'';
         $sourceData = [
@@ -272,7 +271,7 @@ class Submission extends Model implements HasMedia {
             'is_downvoted'   => $downvote ? 1 : 0,
             'is_bookmark'    => $isBookmark ? 1 : 0,
             'is_recommend'   => $submission->is_recommend,
-            'is_joined_group'=> $groupMember?1:0,
+            'is_joined_group'=> 0,
             'is_group_owner' => $submission->group_id?($submission->group->user_id==$user->id?1:0):0,
             'submission_type' => $submission->type,
             'group'    => $withGroup&&$submission->group_id?$submission->group->toArray():''
@@ -281,18 +280,18 @@ class Submission extends Model implements HasMedia {
             $sourceData['group']['name'] = str_limit($sourceData['group']['name'], 20);
         }
 
-        $feed_type = Feed::FEED_TYPE_SUBMIT_READHUB_ARTICLE;
+        $feed_type = 5;
         $title = $submission->user->name.'发布了'.($submission->type == 'article' ? '文章':'分享');
         $top = $submission->top;
-        if ($submission->type == 'text') $feed_type = Feed::FEED_TYPE_SUBMIT_READHUB_SHARE;
+        if ($submission->type == 'text') $feed_type = 15;
         if ($submission->type == 'link') {
-            $feed_type = Feed::FEED_TYPE_SUBMIT_READHUB_LINK;
+            $feed_type = 16;
             $sourceData['link_url'] = $submission->data['url'];
         }
         if ($submission->type == 'review') {
             $url = '/dianping/comment/'.$submission->slug;
             $sourceData['comment_url'] = $url;
-            $feed_type = Feed::FEED_TYPE_SUBMIT_READHUB_REVIEW;
+            $feed_type = 17;
             $title = $submission->hide?'匿名':$submission->user->name;
             foreach ($sourceData['tags'] as $key=>$tag) {
                 $sourceData['tags'][$key]['review_average_rate'] = 0;

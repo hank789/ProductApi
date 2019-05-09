@@ -1,10 +1,5 @@
 <?php namespace App\Third;
 
-/**
- * 统计客户端
- * @author workerman
- * 2015.06.06
- */
 class StatisticClient
 {
 	/**

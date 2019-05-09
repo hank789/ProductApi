@@ -13,7 +13,9 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        Commands\Init\InitProduct::class
+        Commands\Init\InitProduct::class,
+        Commands\Init\AddUser::class,
+        Commands\Init\SetProductManager::class
     ];
 
     /**

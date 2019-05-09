@@ -199,7 +199,6 @@ class ProductController extends Controller {
                 'created_at' => $comment->created_at->diffForHumans()
             ];
         }
-        $this->logUserViewTags($user->id,$submission->tags()->get());
 
         return self::createJsonData(true,$return);
     }
