@@ -50,23 +50,18 @@ class Tag extends Model implements HasMedia
         parent::boot();
 
         static::saved(function($tag){
-            if(Setting()->get('xunsearch_open',0) == 1) {
-                App::offsetGet('search')->update($tag);
-            }
+
         });
 
         /*监听删除事件*/
         static::deleted(function($tag){
             /*删除关注*/
-            Attention::where('source_type','=',get_class($tag))->where('source_id','=',$tag->id)->delete();
             $tag->userTags()->delete();
             TagCategoryRel::where('tag_id',$tag->id)->delete();
             /*删除用户标签*/
             UserTag::where('tag_id','=',$tag->id)->delete();
             Taggable::where('tag_id',$tag->id)->delete();
-            if(Setting()->get('xunsearch_open',0) == 1){
-                App::offsetGet('search')->delete($tag);
-            }
+
             Taggable::where('tag_id',$tag->id)->delete();
             RateLimiter::instance()->hSet('ignore_tags',$tag->name,$tag->id);
         });

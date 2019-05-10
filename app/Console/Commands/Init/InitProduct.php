@@ -39,10 +39,14 @@ class InitProduct extends Command
             return;
         }
         $res = Client::instance()->request(config('app.partner_service_url').'/api/partner/service/getProductInfo',['api_url'=>config('app.url')]);
+        //var_dump($res);
         if ($res && $res['code'] == 1000) {
             $data = $res['data'];
             $product = Tag::find($data['id']);
             if (!$product) {
+                $data['reviews'] = 0;
+                $data['followers'] = 0;
+                $data['parent_id'] = 0;
                 Tag::create($data);
                 ProductUserRel::create([
                     'user_id' => 1,
