@@ -21,6 +21,5 @@ class DatabaseSeeder extends Seeder
             'status' => 1,
             'visit_ip' => '127.0.0.1',
         ]);
-        $admin->attachRole(1);
     }
 }

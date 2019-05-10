@@ -41,7 +41,7 @@ Route::post('upload/img','ImageController@upload')->middleware('jwt.auth');
 Route::post('system/feedback','SystemController@feedback')->middleware('jwt.auth');
 
 //接收文章推送
-Route::post('system/pushArticle','SystemController@pushArticle');
+Route::post('system/pushArticle/{product_id}','SystemController@pushArticle');
 
 
 //微信小程序
