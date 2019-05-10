@@ -43,19 +43,7 @@ class InitProduct extends Command
             $data = $res['data'];
             $product = Tag::find($data['id']);
             if (!$product) {
-                $description = [
-                    'cover_pic' => $data['cover_pic'],
-                    'introduce_pic' => $data['introduce_pic'],
-                    'advance_desc' => $data['advance_desc']
-                ];
-                Tag::create([
-                    'id' => $data['id'],
-                    'name' => $data['name'],
-                    'category_id' => 0,
-                    'logo' => $data['logo'],
-                    'summary' => $data['summary'],
-                    'description' => json_encode($description)
-                ]);
+                Tag::create($data);
                 ProductUserRel::create([
                     'user_id' => 1,
                     'status' => 1,
