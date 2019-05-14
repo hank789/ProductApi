@@ -23,7 +23,7 @@ class CreateAppTagsTable extends Migration {
 			$table->integer('parent_id')->unsigned()->default(0)->index('tags_parent_id_index');
 			$table->integer('followers')->unsigned()->default(0);
 			$table->integer('reviews')->default(0);
-			$table->boolean('is_pro')->default(0);
+			$table->tinyInteger('is_pro')->default(0);
 			$table->timestamps();
 		});
 	}

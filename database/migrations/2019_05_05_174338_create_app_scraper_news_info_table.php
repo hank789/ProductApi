@@ -35,7 +35,7 @@ class CreateAppScraperNewsInfoTable extends Migration {
 			$table->integer('source_type')->default(1)->index('scraper_news_info_source_type_index')->comment('来源:1微信公众号,2feed');
 			$table->integer('type')->default(0)->index('scraper_news_info_type')->comment('消息类型');
 			$table->integer('topic_id')->unsigned()->default(0)->index('scraper_news_info_topic_id_index');
-			$table->boolean('status')->default(1)->index('scraper_news_info_status_index');
+			$table->tinyInteger('status')->default(1)->index('scraper_news_info_status_index');
 			$table->timestamps();
 		});
 	}

@@ -19,7 +19,7 @@ class CreateAppTaggablesTable extends Migration {
 			$table->integer('taggable_id')->unsigned();
 			$table->string('taggable_type');
 			$table->timestamps();
-			$table->boolean('is_display')->default(1)->index('taggables_is_display_index');
+			$table->tinyInteger('is_display')->default(1)->index('taggables_is_display_index');
 			$table->index(['taggable_id','taggable_type'], 'taggables_taggable_id_taggable_type_index');
 		});
 	}

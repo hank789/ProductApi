@@ -22,7 +22,7 @@ class CreateAppScraperFeedsTable extends Migration {
 			$table->integer('user_id')->unsigned()->default(0)->index('scraper_feeds_user_id_index');
 			$table->integer('is_auto_publish')->default(0);
 			$table->string('keywords', 1024)->default('');
-			$table->boolean('status')->default(0);
+			$table->tinyInteger('status')->default(0);
 			$table->softDeletes();
 			$table->timestamps();
 		});

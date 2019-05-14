@@ -32,7 +32,7 @@ class CreateAppScraperWechatMpInfoTable extends Migration {
 			$table->integer('group_id')->unsigned()->default(0)->index('scraper_wechat_mp_info_group_id_index');
 			$table->integer('user_id')->unsigned()->default(0)->index('scraper_wechat_mp_info_user_id_index');
 			$table->integer('is_auto_publish')->default(0);
-			$table->boolean('status')->default(0);
+			$table->tinyInteger('status')->default(0);
 		});
 	}
 

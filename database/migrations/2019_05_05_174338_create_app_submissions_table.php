@@ -20,13 +20,13 @@ class CreateAppSubmissionsTable extends Migration {
 			$table->string('type', 16)->index('submissions_type_index');
 			$table->text('data');
 			$table->string('rate', 16)->nullable()->default('0')->index('submissions_rate_index');
-			$table->boolean('rate_star')->default(0);
+			$table->tinyInteger('rate_star')->default(0);
 			$table->integer('user_id')->unsigned()->index('submissions_user_id_index');
 			$table->integer('status')->unsigned()->default(1)->index('submissions_status_index');
 			$table->integer('top')->default(0)->index('submissions_top_index');
-			$table->boolean('hide')->default(0);
+			$table->tinyInteger('hide')->default(0);
 			$table->integer('is_recommend')->default(0)->index('submissions_is_recommend_index');
-			$table->boolean('public')->default(1)->index('submissions_public_index');
+			$table->tinyInteger('public')->default(1)->index('submissions_public_index');
 			$table->integer('views')->unsigned()->default(0);
 			$table->integer('group_id')->unsigned()->default(0)->index('submissions_group_id_index');
 			$table->integer('support_type')->unsigned()->default(1);

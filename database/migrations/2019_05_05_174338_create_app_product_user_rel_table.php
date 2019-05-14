@@ -17,7 +17,7 @@ class CreateAppProductUserRelTable extends Migration {
 			$table->increments('id');
 			$table->integer('user_id')->unsigned()->default(0)->index('product_user_rel_user_id_index');
 			$table->integer('tag_id')->unsigned()->default(0)->index('product_user_rel_tag_id_index');
-			$table->boolean('status')->default(1)->index('product_user_rel_status_index');
+			$table->tinyInteger('status')->default(1)->index('product_user_rel_status_index');
 		});
 	}
 

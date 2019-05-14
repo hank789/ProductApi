@@ -27,7 +27,7 @@ class CreateAppUsersTable extends Migration {
 			$table->string('email', 128)->nullable()->index('users_email_index');
 			$table->string('mobile', 24)->nullable()->unique('users_mobile_unique');
 			$table->string('password', 64);
-			$table->boolean('gender')->nullable();
+			$table->tinyInteger('gender')->nullable();
 			$table->integer('info_complete_percent')->default(0);
 			$table->string('avatar')->nullable();
 			$table->date('birthday')->nullable();
@@ -39,8 +39,8 @@ class CreateAppUsersTable extends Migration {
 			$table->string('company')->default('');
 			$table->string('title')->nullable();
 			$table->text('description', 65535)->nullable();
-			$table->boolean('status')->default(1);
-			$table->boolean('source')->default(0)->comment('注册来源');
+			$table->tinyInteger('status')->default(1);
+			$table->tinyInteger('source')->default(0)->comment('注册来源');
 			$table->string('site_notifications')->nullable();
 			$table->string('email_notifications')->nullable();
 			$table->string('remember_token', 100)->nullable();

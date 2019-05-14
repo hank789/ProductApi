@@ -26,7 +26,7 @@ class CreateAppUserOauthTable extends Migration {
 			$table->string('scope', 64)->nullable();
 			$table->string('full_info', 2048)->nullable();
 			$table->integer('expires_in');
-			$table->boolean('status')->default(1)->comment('状态:0未生效,1已生效');
+			$table->tinyInteger('status')->default(1)->comment('状态:0未生效,1已生效');
 			$table->timestamps();
 		});
 	}

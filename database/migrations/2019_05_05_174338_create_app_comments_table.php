@@ -23,10 +23,10 @@ class CreateAppCommentsTable extends Migration {
 			$table->integer('level')->default(0);
 			$table->integer('parent_id')->unsigned()->default(0)->index('comments_parent_id_index');
 			$table->string('mentions')->nullable();
-			$table->boolean('status')->default(1);
-			$table->boolean('comment_type')->default(0)->index('comments_comment_type_index');
+			$table->tinyInteger('status')->default(1);
+			$table->tinyInteger('comment_type')->default(0)->index('comments_comment_type_index');
 			$table->integer('supports')->default(0);
-			$table->boolean('device')->default(1);
+			$table->tinyInteger('device')->default(1);
 			$table->timestamps();
 			$table->index(['source_id','source_type'], 'comments_source_id_source_type_index');
 		});

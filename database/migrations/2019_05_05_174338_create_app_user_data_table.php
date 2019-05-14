@@ -31,14 +31,14 @@ class CreateAppUserDataTable extends Migration {
 			$table->integer('supports')->unsigned()->default(0);
 			$table->integer('followers')->unsigned()->default(0);
 			$table->integer('views')->unsigned()->default(0);
-			$table->boolean('email_status')->default(0);
-			$table->boolean('mobile_status')->default(0);
-			$table->boolean('authentication_status')->default(0);
-			$table->boolean('is_company')->default(0);
-			$table->boolean('phone_public')->default(1);
-			$table->boolean('edu_public')->default(0);
-			$table->boolean('project_public')->default(0);
-			$table->boolean('job_public')->default(0);
+			$table->tinyInteger('email_status')->default(0);
+			$table->tinyInteger('mobile_status')->default(0);
+			$table->tinyInteger('authentication_status')->default(0);
+			$table->tinyInteger('is_company')->default(0);
+			$table->tinyInteger('phone_public')->default(1);
+			$table->tinyInteger('edu_public')->default(0);
+			$table->tinyInteger('project_public')->default(0);
+			$table->tinyInteger('job_public')->default(0);
 		});
 	}
 
